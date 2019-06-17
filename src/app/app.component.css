@@ -1,0 +1,27 @@
+.formstyle{
+    margin:auto;
+    border: 1px solid black;
+    padding: 50px 50px 50px 50px;
+    width:400px;
+    height:400px;
+    text-align: left;
+    color: black;
+    display:inline-block;
+     background-color:whitesmoke;
+     
+   }
+   .button {
+    display: inline-block;
+    height: 50px;
+    width: 150px;
+    text-align: center;
+    vertical-align: middle;
+    padding: 12px 24px;
+    border: 1px solid black;
+    border-radius: 3px;
+    background:whitesmoke;
+    background: -webkit-gradient(linear, left top, left bottom, from(whitesmoke), to(whitesmoke));
+    background: -moz-linear-gradient(top,whitesmoke,whitesmoke);
+    background: linear-gradient(to bottom, whitesmoke,whitesmoke);
+    text-decoration: none;
+}
