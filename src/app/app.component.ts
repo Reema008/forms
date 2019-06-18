@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Registeration Form';
+  data:any={};
+
+  onSubmit() {
+    alert(JSON.stringify(this.data));
+  }
 }
+

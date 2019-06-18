@@ -3,13 +3,9 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "library": {
+    "exercise4": {
       "projectType": "application",
-      "schematics": {
-        "@schematics/angular:component": {
-          "style": "scss"
-        }
-      },
+      "schematics": {},
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
@@ -17,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/library",
+            "outputPath": "dist/exercise4",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -28,7 +24,7 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.css"
             ],
             "scripts": []
           },
@@ -62,19 +58,19 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "library:build",
-            "port":4300
+            "browserTarget": "exercise4:build",
+            "port":4400
           },
           "configurations": {
             "production": {
-              "browserTarget": "library:build:production"
+              "browserTarget": "exercise4:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "library:build"
+            "browserTarget": "exercise4:build"
           }
         },
         "test": {
@@ -89,7 +85,7 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.css"
             ],
             "scripts": []
           }
@@ -111,15 +107,15 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "library:serve"
+            "devServerTarget": "exercise4:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "library:serve:production"
+              "devServerTarget": "exercise4:serve:production"
             }
           }
         }
       }
     }},
-  "defaultProject": "library"
+  "defaultProject": "exercise4"
 }

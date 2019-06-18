@@ -10,14 +10,11 @@
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
   Date of Birth:<br>
-  <input id="name" name="name" class="form-control"
-      required minlength="4" 
-      [(ngModel)]="fullname" #name="ngModel" >
+  <input name="name" required minlength="4" [(ngModel)]="data.fullname" #name="ngModel" >
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-   <input id="dob" type="text" name="dob" class="form-control" required [(ngModel)]="date" #dob="ngModel"
-    pattern="[0-9]{1,2}/[0-9]{1,2}/[0-9]{4}"><br>
-   <div *ngIf="name.invalid && (name.dirty || name.touched)"
-    class="alert alert-danger">
+   <input type="date" name="dob" required [(ngModel)]="data.dateofbirth" #dob="ngModel"
+     pattern="[0-9]{1,2}/[0-9]{1,2}/[0-9]{4}"><br>
+   <div *ngIf="name.invalid && (name.dirty || name.touched)">
 
   <div *ngIf="name.errors.required">
     Name is required.
@@ -28,8 +25,7 @@
 
 </div>
 
-<div *ngIf="dob.invalid && (dob.dirty || dob.touched)"
-class="alert alert-danger">
+<div *ngIf="dob.invalid && (dob.dirty || dob.touched)">
 
 <div *ngIf="dob.errors.required">
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -41,7 +37,7 @@ class="alert alert-danger">
 
 </div>
 
-<div *ngIf="dob.errors.pattern">
+<!-- <div *ngIf="dob.errors.pattern">
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -49,19 +45,19 @@ class="alert alert-danger">
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
   dd/mm/yyyy is the format.
 
-</div>
+</div> -->
 
 </div><br><br><br>
   Email:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
   Phone Number:<br>
-   <input id="mail" type="email" name="mail" class="form-control"
-   required minlength="10" [(ngModel)]="mailid" #mail="ngModel" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"  >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-   <input id="phnum" type="number" name="phnum" class="form-control"
-   required  [(ngModel)]="phnumber" #phnum="ngModel" pattern="[0-9]{10}"><br>
-   <div  *ngIf="mail.invalid && (mail.dirty || mail.touched)"
-    class="alert alert-danger">
+   <input type="email" name="mail" required minlength="10" [(ngModel)]="data.mailid" #mail="ngModel" 
+   pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"  >
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+   <input type="number" name="phnum" required  [(ngModel)]="data.phonenumber" #phnum="ngModel" 
+   pattern="[0-9]{10}"><br>
+   <div  *ngIf="mail.invalid && (mail.dirty || mail.touched)">
 
   <div *ngIf="mail.errors.required">
     Mail is required.
@@ -78,8 +74,7 @@ class="alert alert-danger">
 
 
 
-<div  *ngIf="phnum.invalid && (phnum.dirty || phnum.touched)"
-    class="alert alert-danger">
+<div  *ngIf="phnum.invalid && (phnum.dirty || phnum.touched)">
 
   <div *ngIf="phnum.errors.required">
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -108,18 +103,17 @@ class="alert alert-danger">
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
   Tell us about yourself:<br>
-   <input id="password" type="password" name="password" 
-   required minlength="10" [(ngModel)]="pwrd" #password="ngModel">
+   <input type="pwrd" name="pwrd" 
+   required minlength="10" [(ngModel)]="data.password" #pwrd="ngModel">
    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-   <textarea cols="20" rows="1" id="about" name="about" 
-   required [(ngModel)]="aboutu" #about="ngModel"></textarea><br>
-   <div  *ngIf="password.invalid && (password.dirty || password.touched)"
-   class="alert alert-danger">
+   <textarea cols="20" rows="1" name="about" 
+   required [(ngModel)]="data.aboutu" #about="ngModel"></textarea><br>
+   <div  *ngIf="pwrd.invalid && (pwrd.dirty || pwrd.touched)">
 
- <div *ngIf="password.errors.required">
+ <div *ngIf="pwrd.errors.required">
    Password is required.
  </div>
- <div *ngIf="password.errors.minlength">
+ <div *ngIf="pwrd.errors.minlength">
   Password must be at least 10 characters long.
 </div>
 </div>
@@ -140,7 +134,7 @@ class="alert alert-danger">
 
 
    <br><br><br>
-   <select name="states">
+   State<select name="states" required [(ngModel)]="data.state" #states="ngModel">
       <option value="Telangana">Telangana</option>
       <option value="Andhra Pradesh">Andhra Pradesh</option>
       <option value="Kerala">Kerala</option>
@@ -148,16 +142,20 @@ class="alert alert-danger">
       <option value="Karnataka">Karnataka</option>
     </select>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <input type="radio" id="gender" name="gender" value="male" 
-    required [(ngModel)]="gen" #gender="ngModel"> Male
-    <input type="radio" id="gender" name="gender" value="female" 
-    required [(ngModel)]="gen" #gender="ngModel"> Female<br>
+    <input type="radio" name="gen" value="male" 
+    required [(ngModel)]="data.gender" #gen="ngModel"> Male
+    <input type="radio" name="gen" value="female" 
+    required [(ngModel)]="data.gender" #gen="ngModel"> Female<br>
+
+<div *ngIf="states.invalid && (states.dirty || states.touched)">
+    <div *ngIf="states.errors.required">
+      Select your state.</div>
+</div>
 
 
-    <div  *ngIf="gender.invalid && (gender.dirty || gender.touched)"
-    class="alert alert-danger">
+    <div  *ngIf="gen.invalid && (gen.dirty || gen.touched)">
 
-  <div *ngIf="gender.errors.required">
+  <div *ngIf="gen.errors.required">
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -167,9 +165,9 @@ class="alert alert-danger">
   
 </div>
 
-    <br><br><br>
+    <br><br>
     <input type="checkbox" name="subscribe" value="ifyes">I want to receive email about updates to website
-    <br><br><br><br><br>
+    <br><br><br>
     <div style="text-align: center"><button type="submit" class="button" [disabled]="f.form.pristine || f.form.invalid">REGISTER</button></div>
     <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
     </form>

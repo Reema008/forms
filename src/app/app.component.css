@@ -19,9 +19,9 @@
     padding: 12px 24px;
     border: 1px solid black;
     border-radius: 3px;
-    background:whitesmoke;
-    background: -webkit-gradient(linear, left top, left bottom, from(whitesmoke), to(whitesmoke));
-    background: -moz-linear-gradient(top,whitesmoke,whitesmoke);
-    background: linear-gradient(to bottom, whitesmoke,whitesmoke);
+    background:maroon;
+    background: -webkit-gradient(linear, left top, left bottom, from(maroon), to(maroon));
+    background: -moz-linear-gradient(top,maroon,maroon);
+    background: linear-gradient(to bottom, maroon,maroon);
     text-decoration: none;
 }
